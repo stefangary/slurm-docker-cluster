@@ -35,9 +35,13 @@ RUN set -ex \
     && yum clean all \
     && rm -rf /var/cache/yum
 
-RUN alternatives --set python /usr/bin/python3
+RUN dnf install -y python39 python39-pip python39-devel
 
-RUN pip3 install Cython pytest
+RUN alternatives --set python /usr/bin/python3.9
+
+RUN python -m pip install --upgrade pip
+
+RUN python -m pip install Cython pytest parsl
 
 ARG GOSU_VERSION=1.17
 
