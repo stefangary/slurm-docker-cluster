@@ -41,7 +41,7 @@ RUN alternatives --set python /usr/bin/python3.9
 
 RUN python -m pip install --upgrade pip
 
-RUN python -m pip install Cython pytest parsl
+RUN python -m pip install Cython pytest parsl mlflow
 
 ARG GOSU_VERSION=1.17
 
